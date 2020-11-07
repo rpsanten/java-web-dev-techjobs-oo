@@ -56,4 +56,24 @@ public class JobTest {
                 new PositionType("Quality control"), new CoreCompetency("Persistence"));
         assertFalse(tJF1.equals(tJF2));
     }
+
+    Job tJF;
+    String str;
+
+    @Before
+    public void createStrings() {
+        tJF=new Job("Product tester", new Employer("ACME"), new Location("Desert"),
+                new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        str = tJF.toString();
+    }
+
+    @Test
+    public void testToString() {
+        char case1 = str.charAt(0);
+        char case2 = str.charAt(str.length()-1);
+        assertTrue(case1=='\n'&& case2=='\n');
+    }
+
+    @Test
+    public void
 }
