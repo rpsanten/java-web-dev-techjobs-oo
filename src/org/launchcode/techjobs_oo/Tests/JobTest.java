@@ -21,6 +21,8 @@ public class JobTest {
     public void createJobObjects() {
         testJob1 = new Job();
         testJob2 = new Job();
+        str2 = testJob1.toString();
+        testArray = str2.split("\n");
     }
 
     @Test
@@ -59,8 +61,9 @@ public class JobTest {
 
     Job tJF;
     String str1;
+    String str2;
     String[] array;
-//    String str2;
+    String[] testArray;
 
     @Before
     public void createStrings() {
@@ -68,6 +71,7 @@ public class JobTest {
                 new PositionType("Quality control"), new CoreCompetency("Persistence"));
         str1 = tJF.toString();
         array = str1.split("\n");
+
     }
 
     @Test
@@ -84,9 +88,6 @@ public class JobTest {
 
     @Test
     public void testToStringCon2() {
-        System.out.println(tJF.toString());
-        System.out.println(tJF.getEmployer());
-        System.out.println(array[3].substring(10));
         assertTrue(array[1].substring(0,4).equals("ID: "));
         assertTrue(array[2].substring(0,6).equals("Name: "));
         assertTrue(array[3].substring(0,10).equals("Employer: "));
@@ -100,6 +101,17 @@ public class JobTest {
         assertTrue(array[4].substring(10).equals(tJF.getLocation().getValue()));
         assertTrue(array[5].substring(15).equals(tJF.getPositionType().getValue()));
         assertTrue(array[6].substring(17).equals(tJF.getCoreCompetency().getValue()));
-
     }
+
+    @Test
+    public void testToStringCon3() {
+
+        assertTrue(testArray[2].substring(6).equals("Data not available"));
+        assertTrue(testArray[3].substring(10).equals("Data not available"));
+        assertTrue(testArray[4].substring(10).equals("Data not available"));
+        assertTrue(testArray[5].substring(15).equals("Data not available"));
+        assertTrue(testArray[6].substring(17).equals("Data not available"));
+    }
+
+
 }

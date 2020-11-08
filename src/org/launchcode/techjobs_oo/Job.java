@@ -48,12 +48,34 @@ public class Job {
 
     @Override
     public String toString() {
+        String thisName;
+        String thisEmployer;
+        String thisLocation;
+        String thisPositionType;
+        String thisCoreCompetency;
+
+        if(this.getName()==null){thisName="Data not available";}
+        else{thisName=this.getName();}
+
+        if(this.getEmployer()==null){thisEmployer="Data not available";}
+        else{thisEmployer=this.getEmployer().getValue();}
+
+        if(this.getLocation()==null){thisLocation="Data not available";}
+        else{thisLocation=this.getLocation().getValue();}
+
+        if(this.getPositionType()==null){thisPositionType="Data not available";}
+        else{thisPositionType=this.getPositionType().getValue();}
+
+        if(this.getCoreCompetency()==null){thisCoreCompetency="Data not available";}
+        else{thisCoreCompetency=this.getCoreCompetency().getValue();}
+
+
         return "\nID: "+String.valueOf(this.getId())+"\n" +
-                "Name: "+this.getName()+"\n" +
-                "Employer: "+this.getEmployer()+"\n" +
-                "Location: "+this.getLocation()+"\n" +
-                "Position Type: "+this.getPositionType()+"\n" +
-                "Core Competency: "+this.getCoreCompetency()+"\n";
+                "Name: "+thisName+"\n" +
+                "Employer: "+thisEmployer+"\n" +
+                "Location: "+thisLocation+"\n" +
+                "Position Type: "+thisPositionType+"\n" +
+                "Core Competency: "+thisCoreCompetency+"\n";
     }
 
 
