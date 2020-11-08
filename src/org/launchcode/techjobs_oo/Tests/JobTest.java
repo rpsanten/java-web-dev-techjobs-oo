@@ -58,22 +58,45 @@ public class JobTest {
     }
 
     Job tJF;
-    String str;
+    String str1;
+    String[] array;
+//    String str2;
 
     @Before
     public void createStrings() {
         tJF=new Job("Product tester", new Employer("ACME"), new Location("Desert"),
                 new PositionType("Quality control"), new CoreCompetency("Persistence"));
-        str = tJF.toString();
+        str1 = tJF.toString();
+        array = str1.split("\n");
     }
 
     @Test
-    public void testToString() {
-        char case1 = str.charAt(0);
-        char case2 = str.charAt(str.length()-1);
+    public void testToStringCon1() {
+        char case1 = str1.charAt(0);
+        char case2 = str1.charAt(str1.length()-1);
         assertTrue(case1=='\n'&& case2=='\n');
     }
 
+//    @Before
+//    public void createArray() {
+//        str2 = tJF.toString()
+//    }
+
     @Test
-    public void
+    public void testToStringCon2() {
+        assertTrue(array[0].substring(0,3).equals("ID: "));
+        assertTrue(array[1].substring(0,5).equals("Name: "));
+        assertTrue(array[2].substring(0,9).equals("Employer: "));
+        assertTrue(array[3].substring(0,9).equals("Location: "));
+        assertTrue(array[4].substring(0,14).equals("Position Type: "));
+        assertTrue(array[5].substring(0,16).equals("Core Competency: "));
+
+        assertTrue(array[0].substring(4,array[0].length()-1).equals(tJF.getId()));
+        assertTrue(array[1].substring(6,array[1].length()-1).equals(tJF.getName()));
+        assertTrue(array[2].substring(10,array[2].length()-1).equals(tJF.getEmployer()));
+        assertTrue(array[3].substring(10,array[3].length()-1).equals(tJF.getLocation()));
+        assertTrue(array[4].substring(15,array[4].length()-1).equals(tJF.getPositionType()));
+        assertTrue(array[5].substring(17,array[5].length()-1).equals(tJF.getCoreCompetency()));
+
+    }
 }
