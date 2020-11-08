@@ -105,13 +105,10 @@ public class JobTest {
 
     @Test
     public void testToStringCon3() {
-
         assertTrue(testArray[2].substring(6).equals("Data not available"));
         assertTrue(testArray[3].substring(10).equals("Data not available"));
         assertTrue(testArray[4].substring(10).equals("Data not available"));
         assertTrue(testArray[5].substring(15).equals("Data not available"));
         assertTrue(testArray[6].substring(17).equals("Data not available"));
     }
-
-
 }
