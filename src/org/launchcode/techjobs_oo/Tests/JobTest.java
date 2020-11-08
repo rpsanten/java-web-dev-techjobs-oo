@@ -84,19 +84,22 @@ public class JobTest {
 
     @Test
     public void testToStringCon2() {
-        assertTrue(array[0].substring(0,3).equals("ID: "));
-        assertTrue(array[1].substring(0,5).equals("Name: "));
-        assertTrue(array[2].substring(0,9).equals("Employer: "));
-        assertTrue(array[3].substring(0,9).equals("Location: "));
-        assertTrue(array[4].substring(0,14).equals("Position Type: "));
-        assertTrue(array[5].substring(0,16).equals("Core Competency: "));
+        System.out.println(tJF.toString());
+        System.out.println(tJF.getEmployer());
+        System.out.println(array[3].substring(10));
+        assertTrue(array[1].substring(0,4).equals("ID: "));
+        assertTrue(array[2].substring(0,6).equals("Name: "));
+        assertTrue(array[3].substring(0,10).equals("Employer: "));
+        assertTrue(array[4].substring(0,10).equals("Location: "));
+        assertTrue(array[5].substring(0,15).equals("Position Type: "));
+        assertTrue(array[6].substring(0,17).equals("Core Competency: "));
 
-        assertTrue(array[0].substring(4,array[0].length()-1).equals(tJF.getId()));
-        assertTrue(array[1].substring(6,array[1].length()-1).equals(tJF.getName()));
-        assertTrue(array[2].substring(10,array[2].length()-1).equals(tJF.getEmployer()));
-        assertTrue(array[3].substring(10,array[3].length()-1).equals(tJF.getLocation()));
-        assertTrue(array[4].substring(15,array[4].length()-1).equals(tJF.getPositionType()));
-        assertTrue(array[5].substring(17,array[5].length()-1).equals(tJF.getCoreCompetency()));
+        assertTrue(array[1].substring(4).equals(String.valueOf(tJF.getId())));
+        assertTrue(array[2].substring(6).equals(tJF.getName()));
+        assertTrue(array[3].substring(10).equals(tJF.getEmployer().getValue()));
+        assertTrue(array[4].substring(10).equals(tJF.getLocation().getValue()));
+        assertTrue(array[5].substring(15).equals(tJF.getPositionType().getValue()));
+        assertTrue(array[6].substring(17).equals(tJF.getCoreCompetency().getValue()));
 
     }
 }
