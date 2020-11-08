@@ -16,12 +16,15 @@ import static org.junit.Assert.assertFalse;
 public class JobTest {
     Job testJob1;
     Job testJob2;
+    Job testJob3;
 
     Job tJF;
     String str1;
     String str2;
+    String str3;
     String[] array;
     String[] testArray;
+    String[] testArray2;
 
     @Before
     public void createJobObjects() {
@@ -37,7 +40,14 @@ public class JobTest {
                 new PositionType("Quality control"), new CoreCompetency("Persistence"));
         str1 = tJF.toString();
         array = str1.split("\n");
+    }
 
+    @Before
+    public void createJobTestArray() {
+        testJob3 = new Job("", new Employer(""), new Location(""),
+                new PositionType(""), new CoreCompetency(""));
+        str3 = testJob3.toString();
+        testArray2 = str3.split("\n");
     }
 
     @Test
@@ -103,5 +113,11 @@ public class JobTest {
         assertTrue(testArray[4].substring(10).equals("Data not available"));
         assertTrue(testArray[5].substring(15).equals("Data not available"));
         assertTrue(testArray[6].substring(17).equals("Data not available"));
+
+        assertTrue(testArray2[2].substring(6).equals("Data not available"));
+        assertTrue(testArray2[3].substring(10).equals("Data not available"));
+        assertTrue(testArray2[4].substring(10).equals("Data not available"));
+        assertTrue(testArray2[5].substring(15).equals("Data not available"));
+        assertTrue(testArray2[6].substring(17).equals("Data not available"));
     }
 }
