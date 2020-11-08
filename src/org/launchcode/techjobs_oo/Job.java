@@ -55,19 +55,39 @@ public class Job {
         String thisCoreCompetency;
 
         if(this.getName()==null){thisName="Data not available";}
-        else{thisName=this.getName();}
+        else{
+            thisName=this.getName();
+            thisName=thisName.trim();
+            if(thisName==""){thisName="Data not available";}
+        }
 
         if(this.getEmployer()==null){thisEmployer="Data not available";}
-        else{thisEmployer=this.getEmployer().getValue();}
+        else{
+            thisEmployer=this.getEmployer().getValue();
+            thisEmployer=thisEmployer.trim();
+            if(thisEmployer==""){thisEmployer="Data not available";}
+        }
 
         if(this.getLocation()==null){thisLocation="Data not available";}
-        else{thisLocation=this.getLocation().getValue();}
+        else{
+            thisLocation=this.getLocation().getValue();
+            thisLocation=thisLocation.trim();
+            if(thisLocation==""){thisLocation="Data not available";}
+        }
 
         if(this.getPositionType()==null){thisPositionType="Data not available";}
-        else{thisPositionType=this.getPositionType().getValue();}
+        else{
+            thisPositionType=this.getPositionType().getValue();
+            thisPositionType=thisPositionType.trim();
+            if(thisPositionType==""){thisPositionType="Data not available";}
+        }
 
         if(this.getCoreCompetency()==null){thisCoreCompetency="Data not available";}
-        else{thisCoreCompetency=this.getCoreCompetency().getValue();}
+        else{
+            thisCoreCompetency=this.getCoreCompetency().getValue();
+            thisCoreCompetency=thisCoreCompetency.trim();
+            if(thisCoreCompetency==""){thisCoreCompetency="Data not available";}
+        }
 
 
         return "\nID: "+String.valueOf(this.getId())+"\n" +

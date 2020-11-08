@@ -17,6 +17,12 @@ public class JobTest {
     Job testJob1;
     Job testJob2;
 
+    Job tJF;
+    String str1;
+    String str2;
+    String[] array;
+    String[] testArray;
+
     @Before
     public void createJobObjects() {
         testJob1 = new Job();
@@ -25,10 +31,17 @@ public class JobTest {
         testArray = str2.split("\n");
     }
 
+    @Before
+    public void createStrings() {
+        tJF=new Job("Product tester", new Employer("ACME"), new Location("Desert"),
+                new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        str1 = tJF.toString();
+        array = str1.split("\n");
+
+    }
+
     @Test
     public void testSettingJobId(){
-//        testJob1 = new Job();
-//        testJob2 = new Job();
         assertEquals(testJob2.getId(),testJob1.getId()+1);
     }
 
@@ -59,32 +72,12 @@ public class JobTest {
         assertFalse(tJF1.equals(tJF2));
     }
 
-    Job tJF;
-    String str1;
-    String str2;
-    String[] array;
-    String[] testArray;
-
-    @Before
-    public void createStrings() {
-        tJF=new Job("Product tester", new Employer("ACME"), new Location("Desert"),
-                new PositionType("Quality control"), new CoreCompetency("Persistence"));
-        str1 = tJF.toString();
-        array = str1.split("\n");
-
-    }
-
     @Test
     public void testToStringCon1() {
         char case1 = str1.charAt(0);
         char case2 = str1.charAt(str1.length()-1);
         assertTrue(case1=='\n'&& case2=='\n');
     }
-
-//    @Before
-//    public void createArray() {
-//        str2 = tJF.toString()
-//    }
 
     @Test
     public void testToStringCon2() {
